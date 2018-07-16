@@ -5,6 +5,9 @@ import javax.inject.Singleton;
 import dagger.Component;
 import ru.terrakok.cicerone.sample.dagger.module.LocalNavigationModule;
 import ru.terrakok.cicerone.sample.dagger.module.NavigationModule;
+import ru.terrakok.cicerone.sample.kotlin.AndroidTabFragment;
+import ru.terrakok.cicerone.sample.kotlin.BugTabFragment;
+import ru.terrakok.cicerone.sample.kotlin.DogTabFragment;
 import ru.terrakok.cicerone.sample.ui.animations.ProfileActivity;
 import ru.terrakok.cicerone.sample.ui.animations.photos.SelectPhotoFragment;
 import ru.terrakok.cicerone.sample.ui.animations.profile.ProfileFragment;
@@ -38,6 +41,18 @@ public interface AppComponent {
     void inject(ProfileFragment fragment);
 
     void inject(SelectPhotoFragment fragment);
+
+    void inject(AndroidTabFragment fragment);
+
+    void inject(BugTabFragment fragment);
+
+    void inject(DogTabFragment fragment);
+
+    void inject(ru.terrakok.cicerone.sample.java.AppTabContainerFragment fragment);
+
+    void inject(ru.terrakok.cicerone.sample.java.BugTabFragment fragment);
+
+    void inject(ru.terrakok.cicerone.sample.java.DogTabFragment fragment);
 
     void inject(ProfileActivity activity);
 }

@@ -21,6 +21,9 @@ import ru.terrakok.cicerone.commands.Replace;
 import ru.terrakok.cicerone.sample.R;
 import ru.terrakok.cicerone.sample.SampleApplication;
 import ru.terrakok.cicerone.sample.Screens;
+import ru.terrakok.cicerone.sample.kotlin.AndroidTabFragment;
+import ru.terrakok.cicerone.sample.kotlin.BugTabFragment;
+import ru.terrakok.cicerone.sample.kotlin.DogTabFragment;
 import ru.terrakok.cicerone.sample.mvp.bottom.BottomNavigationPresenter;
 import ru.terrakok.cicerone.sample.mvp.bottom.BottomNavigationView;
 import ru.terrakok.cicerone.sample.ui.common.BackButtonListener;
@@ -31,9 +34,9 @@ import ru.terrakok.cicerone.sample.ui.common.RouterProvider;
  */
 public class BottomNavigationActivity extends MvpAppCompatActivity implements BottomNavigationView, RouterProvider {
     private BottomNavigationBar bottomNavigationBar;
-    private TabContainerFragment androidTabFragment;
-    private TabContainerFragment bugTabFragment;
-    private TabContainerFragment dogTabFragment;
+    private Fragment androidTabFragment;
+    private Fragment bugTabFragment;
+    private Fragment dogTabFragment;
 
     @Inject
     Router router;
@@ -102,27 +105,27 @@ public class BottomNavigationActivity extends MvpAppCompatActivity implements Bo
 
     private void initContainers() {
         FragmentManager fm = getSupportFragmentManager();
-        androidTabFragment = (TabContainerFragment) fm.findFragmentByTag("ANDROID");
+        androidTabFragment = fm.findFragmentByTag(Screens.ANDROID_TAB);
         if (androidTabFragment == null) {
-            androidTabFragment = TabContainerFragment.getNewInstance("ANDROID");
+            androidTabFragment = new AndroidTabFragment();
             fm.beginTransaction()
-                    .add(R.id.ab_container, androidTabFragment, "ANDROID")
+                    .add(R.id.ab_container, androidTabFragment, Screens.ANDROID_TAB)
                     .detach(androidTabFragment).commitNow();
         }
 
-        bugTabFragment = (TabContainerFragment) fm.findFragmentByTag("BUG");
+        bugTabFragment = fm.findFragmentByTag(Screens.BUG_TAB);
         if (bugTabFragment == null) {
-            bugTabFragment = TabContainerFragment.getNewInstance("BUG");
+            bugTabFragment = new BugTabFragment();
             fm.beginTransaction()
-                    .add(R.id.ab_container, bugTabFragment, "BUG")
+                    .add(R.id.ab_container, bugTabFragment, Screens.BUG_TAB)
                     .detach(bugTabFragment).commitNow();
         }
 
-        dogTabFragment = (TabContainerFragment) fm.findFragmentByTag("DOG");
+        dogTabFragment = fm.findFragmentByTag(Screens.DOG_TAB);
         if (dogTabFragment == null) {
-            dogTabFragment = TabContainerFragment.getNewInstance("DOG");
+            dogTabFragment = new DogTabFragment();
             fm.beginTransaction()
-                    .add(R.id.ab_container, dogTabFragment, "DOG")
+                    .add(R.id.ab_container, dogTabFragment, Screens.DOG_TAB)
                     .detach(dogTabFragment).commitNow();
         }
     }

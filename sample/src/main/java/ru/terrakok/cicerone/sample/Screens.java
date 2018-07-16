@@ -16,6 +16,10 @@ public class Screens {
     public static final String BUG_SCREEN = "bug screen";
     public static final String DOG_SCREEN = "dog screen";
 
+    public static final String ANDROID_TAB = "android tab";
+    public static final String BUG_TAB = "bug tab";
+    public static final String DOG_TAB = "dog tab";
+
     public static final String FORWARD_SCREEN = "forward screen";
     public static final String GITHUB_SCREEN = "github screen";
 
