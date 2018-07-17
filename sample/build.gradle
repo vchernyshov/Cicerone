@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 repositories {
     jcenter()
@@ -32,6 +33,10 @@ ext {
     supportLibraryVersion = "25.3.0"
     moxyVersion = "1.4.6"
     daggerVersion = "2.10"
+}
+
+androidExtensions {
+    experimental = true
 }
 
 dependencies {
